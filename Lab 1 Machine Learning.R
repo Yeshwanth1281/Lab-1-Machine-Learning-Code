@@ -1,4 +1,4 @@
-# Ensure the 'studentInfo.csv' file is in the current working directory. Check with getwd() and change with setwd() as needed.
+# Ensure the 'studentInfo.csv' file is in the current working directory. 
 
 # Loading the student data using base R read.csv function
 student <- read.csv(r"(C:\Users\peddo\OneDrive\Desktop\Lab1\studentInfo.csv)")
@@ -19,8 +19,8 @@ set.seed(20230712)  # Setting seed for reproducibility
 sample_count <- floor(0.8 * nrow(student_data))
 training <- sample(seq_len(nrow(student_data)), size = sample_count)
 
-train_data <- student[training, ]
-test_data <- student[-training, ]
+train_data <- student[training]
+test_data <- student[-training]
 
 # Building a logistic regression model with glm (Generalized Linear Model) in base R
 logit_model <- glm(is_passed ~ disability_status + imd_numeric, family = binomial(link = "logit"), data = train_data)
